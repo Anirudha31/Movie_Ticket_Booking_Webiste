@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - MovieTime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Bungee&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #141e30, #99f2c8);
+      height: 100vh; display: flex; justify-content: center; align-items: center; color: white;
+    }
+    .background {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('/source/pic.png');
+      background-repeat: no-repeat; background-size: cover; background-position: center;
+      z-index: -1; filter: blur(3px);
+    }
+    .signup-container {
+      background-color: rgba(0,0,0,0.85); padding: 40px; border-radius: 40px; width: 500px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .signup-container h2 {
+      text-align: center; margin-bottom: 30px; font-size: 26px; color: #2ecc71;
+      font-family: "Bitcount Grid Single", system-ui;
+    }
+    .signup-container input {
+      width: 100%; padding: 10px; border: none; border-radius: 10px; margin-top: 5px;
+    }
+    .signup-container input[type="submit"] {
+      margin-top: 20px; padding: 12px; background-color: #2ecc71; font-weight: bold; cursor: pointer;
+      transition: background 0.3s;
+    }
+    .signup-container input[type="submit"]:hover { background-color: #27ae60; }
+    .signup-container .login-link { text-align: center; margin-top: 20px; font-size: 14px; }
+    .signup-container .login-link a { color: #2ecc71; text-decoration: none; }
+    .signup-container .login-link a:hover { text-decoration: underline; }
+    .logo { text-align: center; margin-bottom: 20px; }
+    .logo img { width: 300px; height: auto; }
+  </style>
+</head>
+
+<body>
+  <div class="background"></div>
+  <div class="signup-container">
+    <div class="logo">
+      <img src="/source/movie.png" alt="MovieTime Logo" />
+    </div>
+    <h2>Create Your Movie-Time Account</h2>
+    <form id="signupForm">
+      <input type="text" id="fullname" name="fullname" placeholder="Full Name" required />
+      <input type="email" id="email" name="email" placeholder="Email" required />
+      <input type="password" id="password" name="password" placeholder="Password" required />
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required />
+      <input type="submit" value="Sign Up" />
+    </form>
+    <div class="login-link">
+      Already have an account? <a href="login.html">Login</a>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+
+</html>

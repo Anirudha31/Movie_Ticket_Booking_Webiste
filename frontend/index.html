@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Booking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">🎬 MovieTime</h1>
+    <div class="flex gap-4 items-center">
+      <span id="userNameDisplay" class="font-semibold"></span>
+      <button id="logoutBtn" class="bg-red-600 px-3 py-1 rounded">Logout</button>
+    </div>
+  </header>
+
+  <!-- Movies & Booking -->
+  <main class="p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+    <section class="md:col-span-3">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold">Now Showing</h2>
+        <div class="flex gap-2">
+          <input id="searchInput" type="text" placeholder="Search movies..." class="px-3 py-1 rounded text-black">
+          <select id="sortFilter" class="px-2 py-1 rounded text-black">
+            <option value="">Sort</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Movies Grid -->
+      <div id="moviesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Movies will render here dynamically -->
+      </div>
+    </section>
+
+    <aside class="md:col-span-1">
+      <h2 class="text-xl font-semibold mb-4">My Bookings</h2>
+      <div id="bookingsList" class="space-y-3 bg-white p-3 rounded shadow">
+        <p class="text-sm text-gray-500">No bookings yet.</p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white rounded-lg shadow-lg w-96 p-6 relative">
+      <button id="closeModal" class="absolute top-2 right-2 text-gray-500">✖</button>
+      <h2 id="modalTitle" class="text-lg font-bold mb-3">Movie Title</h2>
+      <label class="block mb-2 text-sm">Select Showtime:</label>
+      <select id="showtimeSelect" class="w-full border rounded px-2 py-1 mb-4">
+        <option>10:00 AM</option>
+        <option>1:00 PM</option>
+        <option>4:00 PM</option>
+        <option>7:00 PM</option>
+      </select>
+      <div class="grid grid-cols-8 gap-1 mb-4" id="seatGrid"></div>
+      <button id="confirmBooking" class="w-full bg-blue-600 text-white py-2 rounded">Confirm Booking</button>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+
+  <style>
+    /* Movie card styling */
+    #moviesGrid > div img {
+      height: 16rem; /* fixed uniform height */
+      width: 100%;
+      object-fit: cover; /* maintain aspect ratio without stretching */
+      border-radius: 0.5rem;
+      transition: transform 0.3s;
+    }
+
+    #moviesGrid > div img:hover {
+      transform: scale(1.05);
+    }
+
+    #moviesGrid > div {
+      background: white;
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</body>
+</html>

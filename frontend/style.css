@@ -1,0 +1,75 @@
+:root {
+  --emerald-500: #22c55e;
+  --emerald-700: #16a34a;
+  --emerald-900: #064e3b;
+}
+
+/* General */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Cards */
+.movie-card {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.6);
+}
+.movie-card img {
+  height: 280px;
+  object-fit: cover;
+}
+.movie-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+.movie-meta {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* Seats */
+.seat {
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.seat.available {
+  background: linear-gradient(90deg, var(--emerald-500), var(--emerald-700));
+  color: white;
+}
+.seat.available:hover {
+  transform: scale(1.1);
+}
+.seat.taken {
+  background: #374151;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+.seat.selected {
+  background: #a3e635;
+  color: #052e16;
+  font-weight: bold;
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
